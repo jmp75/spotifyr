@@ -1,0 +1,20 @@
+Package: spotifyr
+Type: Package
+Title: R Client for the Spotify Web API
+Version: 0.1.1
+Authors@R: person("Jean-Michel", "Perraud", email="jean.michel.perraud@gmail.com",
+    role = c("aut", "cre"))
+Maintainer: Jean-Michel Perraud <jean.michel.perraud@gmail.com>
+Description: R Client for the Spotify Web API, 
+    TODO address of spotify docco to get an account/key. Without an API key, this package will not work properly.
+License: MIT
+URL: https://github.com/jmp75/spotifyr
+BugReports: http://www.github.com/jmp75/spotifyr/issues
+VignetteBuilder: knitr
+Imports: methods, httr, jsonlite, pander
+Suggests: knitr, rmarkdown, testthat
+SystemRequirements: A valid account. OAuth token.
+    Spotify web page TODO. Without an API key, this package will
+    not work properly.
+NeedsCompilation: no
+RoxygenNote: 5.0.1
