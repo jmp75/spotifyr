@@ -14,7 +14,7 @@
 #     Tell Requests to stop waiting for a response after a given number of seconds
 # '''
 create_spotify_object <- function(auth=NA, requests_session=True,
-        client_credentials_manager=NA, proxies=NA, requests_timeout=NA){
+        client_credentials_manager=NA, proxies=NA, requests_timeout=NA) {
     obj <- list()
     obj$trace = FALSE  # Enable tracing?
     obj$trace_out = FALSE
