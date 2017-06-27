@@ -13,7 +13,7 @@ make_authorization_headers <- function(client_id, client_secret) {
     httr::add_headers(Authorization = bd)
 }
 
-has_token_expired(token_info) {
+has_token_expired <- function(token_info) {
     tnow <- lubridate::now()
     return(as.numeric(tnow- token_info['expires_at'], units="hours") < 1) # I *think* this was one hour ('60')... TBC
 }
@@ -54,7 +54,7 @@ get_access_token <- function(self) {
     # If a valid access token is in memory, returns it
     # Else feches a new token and returns it
     # """
-    if (!is.na(self$token_info) and !has_token_expired(self$token_info)) {
+    if (!is.na(self$token_info) && !has_token_expired(self$token_info)) {
         return(self$token_info$access_token)
     } else {
         token_info = request_access_token()
