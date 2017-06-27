@@ -11,7 +11,7 @@ License: MIT
 URL: https://github.com/jmp75/spotifyr
 BugReports: http://www.github.com/jmp75/spotifyr/issues
 VignetteBuilder: knitr
-Imports: methods, httr, jsonlite, pander
+Imports: methods, httr, jsonlite
 Suggests: knitr, rmarkdown, testthat
 SystemRequirements: A valid account. OAuth token.
     Spotify web page TODO. Without an API key, this package will

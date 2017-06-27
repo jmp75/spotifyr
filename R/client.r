@@ -156,13 +156,13 @@ internal_call <- function(spot_cnx, method, url, payload, params) {
         #return None
 #}
 
-warn_old <- function(spot_cnx, msg) {
-    print('warning:' + msg, file=sys.stderr)
-}
+#warn_old <- function(spot_cnx, msg) {
+    #print('warning:' + msg, file=sys.stderr)
+#}
 
-spot_warn <- function(spot_cnx, msg, *args) {
-    print('warning:' + msg.format(*args), file=sys.stderr)
-}
+#spot_warn <- function(spot_cnx, msg, *args) {
+    #print('warning:' + msg.format(*args), file=sys.stderr)
+#}
 
 spot_url <- function(spot_cnx, url_postfix) {
   spot_cnx$prefix
