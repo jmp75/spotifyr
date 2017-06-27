@@ -43,6 +43,7 @@ create_spotify_object <- function(auth=NA, requests_session=TRUE,
 #' 
 #' @param type the expected type for this id, which may be in the long ID form as penultimate entry before the ID
 #' @param long_id - a spotify URI, URL or ID
+#' @import stringr
 #' @return the short ID
 retrieve_id <- function(type, long_id) {
   fields <- stringr::str_split(long_id, pattern=':')[[1]]
@@ -93,6 +94,7 @@ spot_url <- function(spot_cnx, url_postfix) {
 #' @param spot_cnx - a list with the essential Spotify API connection settings
 #' @param url_postfix - the part after the root spotify Web API site URL
 #' @param ... TDB
+#' @import httr
 #' @return a list with class attribute 'response'
 spot_get <- function(spot_cnx, url_postfix, ...) {
   gtoken <- spot_cnx$auth
