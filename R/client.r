@@ -1,6 +1,54 @@
+message_env_variables <- function() {
+  msg <- "
+            You may need to set your Spotify API credentials. You can do this by
+            setting environment variables like so:
+
+            export SPOTIFYR_CLIENT_ID='your-spotify-client-id'
+            export SPOTIFYR_CLIENT_SECRET='your-spotify-client-secret'
+
+            Get your credentials at     
+                https://developer.spotify.com/my-applications
+"
+  message(msg)
+}
+
+
+#' Gets an authentication token for the Spotify Web API
+#' 
+#' Gets an authentication token for the Spotify Web API. See https://developer.spotify.com/web-api/authorization-guide/.
+#' 
+#' @param client_key the client key for the application
+#' @param client_secret the client secret for the application
+#' @import httr
+#' @import httpuv
+#' @export
+#' @return an httr authorisation token
+spotify_token <- function(client_key="", client_secret="") {
+  # package constants, very unlikely to be changing
+  # Note that we are likely to need further exception handling later on.
+  s_endpoint <- httr::oauth_endpoint(
+      authorize = "https://accounts.spotify.com/authorize",
+      access = "https://accounts.spotify.com/api/token")
+
+  if (client_key == "") client_key <- Sys.getenv("SPOTIFYR_CLIENT_ID")
+  if (client_secret == "") client_secret <- Sys.getenv("SPOTIFYR_CLIENT_SECRET")
+
+  if ((client_key == "") || (client_secret == "")) {
+    message_env_variables()
+  }
+
+  if (client_key == "") stop("No spotify client key found")
+  if (client_secret == "") stop("No spotify client secret found")
+  myapp <- httr::oauth_app("spotifyr", key = client_key, secret = client_secret)
+
+  app_token <- httr::oauth2.0_token(s_endpoint, myapp)
+  token <- httr::config(token = app_token)
+  return(token)
+}
+
 #' Create a Spotify API object.
 #' 
-#' @param auth An authorization token (optional)
+#' @param auth An authorisation token (optional)
 #' @param requests_session
 #'     A Requests session object or a truthy value to create one.
 #'     A falsy value disables sessions.
