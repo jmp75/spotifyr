@@ -7,7 +7,7 @@ Authors@R: person("Jean-Michel", "Perraud", email="jean.michel.perraud@gmail.com
 Maintainer: Jean-Michel Perraud <jean.michel.perraud@gmail.com>
 Description: R Client for the Spotify Web API, 
     TODO address of spotify docco to get an account/key. Without an API key, this package will not work properly.
-License: MIT + file LICENSE
+License: AGPLv3
 URL: https://github.com/jmp75/spotifyr
 BugReports: http://www.github.com/jmp75/spotifyr/issues
 VignetteBuilder: knitr
