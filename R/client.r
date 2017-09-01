@@ -40,9 +40,9 @@ create_spotify_object <- function(auth=NA, requests_session=True,
 auth_headers <- function(spot_cnx) {
     if (!is.na(spot_cnx$auth)) {
         token = spot_cnx$auth
-    } else if (!is.na(spot_cnx$client_credentials_manager) {
+    } else if (!is.na(spot_cnx$client_credentials_manager)) {
         token = spot_cnx$client_credentials_manager.get_access_token()
-    } else {}
+    } else {
         return(NULL)
     }
     return(httr::add_headers(Authorization = paste0('Bearer ', token)))
