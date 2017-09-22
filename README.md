@@ -9,9 +9,9 @@ spotifyr is a thin client library for the Spotify Web API.
 * TBC Install the release version of `spotifyr` from CRAN with `install.packages("spotifyr")`, or
 * Install the development version of spotifyr (assuming you have devtools)
 
-   ```R
-   devtools::install_github("jmp75/spotifyr")
-   ```
+```R
+devtools::install_github("jmp75/spotifyr")
+```
 
 ## Quick Start
 To get started, simply install spotifyr, create a Spotify object and call methods:

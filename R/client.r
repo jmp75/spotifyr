@@ -88,7 +88,8 @@ spotify_token <- function(client_id="", client_secret="", scopes=NULL, appname="
 }
 
 .state <- new.env(parent=emptyenv())
-# for reference create_spotify_context is derived from spotify.R
+# for reference create_spotify_context is derived from 
+# https://github.com/cscheid/rgithub/blob/master/R/github.R
 create_spotify_context <- function(api_url = "https://api.spotify.com/v1/", client_id = NULL,
                                   client_secret = NULL, spotify_token = NULL,
                                   max_etags = 10000, verbose = FALSE)
@@ -153,7 +154,10 @@ make_uri <- function(type, id) {
 #' @param url_postfix - the part after the root spotify Web API site URL
 #' @return the spotify URL to use in a request
 spot_url <- function(spot_ctx, url_postfix) {
-  return(httr::modify_url(spot_ctx$api_url, path=url_postfix)) 
+  # httr::modify_url strips the /v1/ part of the api URL in spot_ctx$api_url, 
+  # so we need to pass it to the url postfix...
+  v1_url_postfix = paste0("v1/", url_postfix)
+  return(httr::modify_url(spot_ctx$api_url, path=v1_url_postfix)) 
 }
 
 #' Make a GET request to the spotify API
