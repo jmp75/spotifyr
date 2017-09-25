@@ -1,4 +1,5 @@
 docs/.*
+deprecate/.*
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.httr-oauth$

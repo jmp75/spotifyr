@@ -1,0 +1,87 @@
+---
+title: "Getting started with the Spotify API"
+author: "Jean-Michel Perraud"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with the Spotify API}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Time series libraries - overview
+=================
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(out.extra='style="display:block; margin: auto"', fig.align="center", fig.width=10, fig.height=8, dev='png')
+```
+
+# About this document
+
+This document was generated from an R markdown file on `r as.character(Sys.time())`.
+
+# Introduction
+
+`spotifyr` is an R package with bindings for the Spotify Web API.
+
+# Getting started
+
+NOTE: As of Sept 2017 the vignette is not run at package build time; the OAuth2 authentication is in the way.
+
+```{r}
+library(spotifyr)
+```
+
+While not really compulsory, you usually will want to have default client ID and 'secret' defined via environment variables. These are used by default in fetching an authorization token. 
+
+```{r, eval=FALSE}
+Sys.setenv(
+    SPOTIFYR_CLIENT_ID='0123456789abcdef0123456789abcdef',
+    SPOTIFYR_CLIENT_SECRET='0123456789abcdeffffffffffffffffff',
+    SPOTIFYR_REDIRECT_URI='http://localhost:8888/callback'
+)
+```
+
+You may want to store the above script in a separate file:
+
+```{r, eval=FALSE}
+source('~/credentials/private_spotify_creds.R')
+```
+
+You can then log in using the default arguments: 
+
+```{r, eval=FALSE}
+ctx <- spotify_interactive_login()
+```
+
+```{r, eval=FALSE, include=FALSE}
+ctx <- spotify_background_login('~/credentials/doc_http_auth')
+```
+
+You may get the following feedback from the login process, unless you have previously cached the OAuth. If requried `spotify_interactive_login` will open a web page asking you to log in to Spotify.
+
+```
+Use a local file to cache OAuth access credentials between R sessions?
+1: Yes
+2: No
+
+Selection: 2
+Waiting for authentication in browser...
+Press Esc/Ctrl + C to abort
+Authentication complete.
+```
+
+Once you have the "context" resulting from the login process, you can query the API. 
+
+```{r, eval=FALSE}
+album_id <- "spotify:album:51fdWBBJ2KdQDwT5gskA0Y"
+the_album <- albums(album_id, ctx)
+names(the_album)
+the_album$name
+class(the_album$tracks$items)
+faufile <- the_album$tracks$items[6,]
+faufile$artists
+faufile_track <- tracks(faufile$uri, ctx)
+faufile_track$name
+```

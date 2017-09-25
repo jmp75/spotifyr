@@ -6,10 +6,10 @@
 #' \tabular{ll}{
 #' Package: \tab spotifyr \cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.2 \cr
-#' Date: \tab 2017-09-01 \cr
+#' Version: \tab 0.5 \cr
+#' Date: \tab 2017-09-24 \cr
 #' Release Notes: \tab Initial release with partial support for the Spotify API \cr
-#' License: \tab AGPL-3 \cr
+#' License: \tab MIT + file LICENSE \cr
 #' }
 #'
 #' \tabular{lll}{
@@ -20,6 +20,7 @@
 #' @import httr
 #' @import stringr
 #' @import httpuv
+#' @import magrittr
 #'
 #' @name spotifyr-package
 #' @aliases spotifyr
