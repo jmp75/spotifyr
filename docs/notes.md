@@ -6,6 +6,14 @@ These are my evolving dev notes - not of use in the package itself.
 
 [mscsweblm4r](https://github.com/philferriere/mscsweblm4r)
 [httr](https://www.r-pkg.org/pkg/httr)
+Started to look at possibility to generate bindings. Started parsing, but now looking at OpenAPI:
+[OpenAPI initiative](https://www.openapis.org) f.k.a. swagger
+
+[http://editor.swagger.io/](http://editor.swagger.io/)
+[Spotify v1 specs in Swagger2.0](https://github.com/APIs-guru/openapi-directory/blob/master/APIs/spotify.com/v1/swagger.yaml)
+
+[AutoREST](https://github.com/Azure/autorest) by Azure
+[Swagger codegen](https://swagger.io/swagger-codegen/) and the [repo](https://github.com/swagger-api/swagger-codegen)
 
 # elaboration
 
@@ -24,6 +32,7 @@ library(jsonlite)
 library(magrittr)
 
 load_all('/home/per202/src/github_jm/spotifyr')
+load_all('c:/src/github_jm/spotifyr')
 
 api_lines <- c(
 "GET, /v1/albums/{id}, Get an album, album"
