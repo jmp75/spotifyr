@@ -13,7 +13,8 @@ Started to look at possibility to generate bindings. Started parsing, but now lo
 [Spotify v1 specs in Swagger2.0](https://github.com/APIs-guru/openapi-directory/blob/master/APIs/spotify.com/v1/swagger.yaml)
 
 [AutoREST](https://github.com/Azure/autorest) by Azure
-[Swagger codegen](https://swagger.io/swagger-codegen/) and the [repo](https://github.com/swagger-api/swagger-codegen)
+[Swagger codegen](https://swagger.io/swagger-codegen/) and the [repo](https://github.com/swagger-api/swagger-codegen). And "lord" and behold, I see R client activity 7 hours ago as I write courtesy of (Jakob Schelbert)[https://github.com/jschelbert]
+[Interesting overview with dev resource lists](https://blog.runscope.com/posts/openapi-swagger-resource-list-for-api-developers)
 
 # elaboration
 
