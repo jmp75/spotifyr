@@ -1,15 +1,43 @@
 library(devtools)
-require(httpuv)
-library(testthat)
-
-library(httr)
-library(jsonlite)
-library(magrittr)
+# require(httpuv)
+# library(testthat)
+# library(httr)
+# library(jsonlite)
+# library(magrittr)
 
 load_all('/home/per202/src/github_jm/spotifyr')
-
 source('~/credentials/private_spotify_creds.R')
 
+####################
+# use case: retrieve from a playlist
+ctx <- spotify_interactive_login()
+my_playlists <- playlists(spot_ctx=ctx)
+
+my_playlists <- playlists(spot_ctx=ctx)
+# my_playlists <- playlists(spot_ctx=ctx, query=(list(limit=4)))
+# my_playlists$`next`
+my_playlists$items
+my_playlists$items$name
+my_playlists$items[8,]$name
+my_playlists$items[8,]$uri
+
+playlist <- i_get_users_user_id_playlists_playlist_id(spot_ctx=ctx, user_id='jmp202', playlist_id='spotify:user:jmp202:playlist:4yQEwOFAUnH6XqM9QfNkRm', id_type='playlist', query=NULL)
+> names(playlist$tracks)
+[1] "href"     "items"    "limit"    "next"     "offset"   "previous" "total"   
+
+> names(playlist$tracks$items)
+[1] "added_at" "added_by" "is_local" "track"   
+> names(playlist$tracks$items$track)
+ [1] "album"             "artists"           "available_markets"
+ [4] "disc_number"       "duration_ms"       "explicit"         
+ [7] "external_ids"      "external_urls"     "href"             
+[10] "id"                "name"              "popularity"       
+[13] "preview_url"       "track_number"      "type"             
+[16] "uri"              
+
+
+kiz_tracks <- tracks(my_playlists$items[8,]$uri, spot_ctx=ctx)
+####################
 
 
 library(spotifyr)

@@ -140,4 +140,39 @@ audio_features <- function(ids, spot_ctx=NULL) {
   }
 }
 
+#' @export
+playlists <- function(ids=NULL, user_id=NULL, spot_ctx=NULL, ...) {
+  if(!is.null(user_id)) {
+    if(!is.null(ids)) {
+      # i_get_users_user_id_playlists_playlist_id <- function(spot_ctx, user_id, playlist_id, id_type, query=NULL) {
+    }
+    # i_get_users_user_id_playlists <- function(spot_ctx, user_id, query=NULL) {
+    # i_get_users_user_id_playlists_playlist_id_followers_contains <- function(spot_ctx, user_id, playlist_id, id_type, query=NULL) {
+  } else {
+    # i_get_me_playlists <- function(spot_ctx, query=NULL) 
+    i_get_me_playlists(spot_ctx, query=...)
+  }
+  # i_get_me_player_recently_played <- function(spot_ctx, query=NULL) {
+}
 
+tracks_in_playlist <- function(playlist, spot_ctx=NULL) {
+  # stopifnot is_playlist(playlist)
+  uid <- user_id(playlist)
+  pid <- playlist_id(playlist)
+  # i_get_users_user_id_playlists_playlist_id_tracks <- function(spot_ctx, user_id, playlist_id, id_type, query=NULL) {
+  i_get_users_user_id_playlists_playlist_id_tracks(spot_ctx=spot_ctx, user_id=uid, playlist_id=pid, id_type=playlist_id_type, query=NULL)
+}
+
+user_id <- function(item) {
+  if(is_playlist(item))
+  {
+    
+  }
+  my_playlists
+names(my_playlists)
+names(my_playlists$items)
+names(my_playlists$items$owner)
+(my_playlists$items$owner)
+history()
+
+}
