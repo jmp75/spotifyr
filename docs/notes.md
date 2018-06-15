@@ -22,6 +22,27 @@ see [elaboration.r](../vignettes/elaboration.R)
 
 # generate api functions
 
+## 2017-10-02
+
+Found out about swagger, now known as OpenAPI
+
+```sh
+java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i http://petstore.swagger.io/v2/swagger.json   -l java   -o samples/client/petstore/java^C
+```
+
+```sh
+cd ~/src/tmp/testspf
+java -jar ~/src/tmp/swagger-codegen-master/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i https://github.com/APIs-guru/openapi-directory/blob/master/APIs/spotify.com/v1/swagger.yaml -l java   -o ./java
+
+```
+
+```sh
+cd ~/src/tmp/testspf
+java -jar ~/src/tmp/swagger-codegen-master/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i ./spf.yaml -l java -o ./java
+```
+
+## 2017-09
+
 ```r
 
 library(devtools)
